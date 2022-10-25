@@ -1,0 +1,35 @@
+{
+  "FtsoManager": {
+    "address": "0xAB7C7da1Ff2b25D0867908ddFa52827570e02894",
+    "comments": {
+      "write": {
+        "activate": "For deployment use.",
+        "addFtso": "Adds a new submittable FTSO (symbol) to the system."
+      },
+      "read": {},
+      "event": {}
+    }
+  },
+  "ftsoRegistry": {
+    "address": "0xcD099A11ecd4b02aFF5F17eC46242a9a7cfdA527",
+    "comments": {
+      "write": {},
+      "read": {},
+      "event": {}
+    }
+  },
+  "Supply": {
+    "address": "0x8577D2D50827bCE2EC1dc9Cf9F1199826781D5AF",
+    "description": "Supply Contract",
+    "comments": {
+      "write": {},
+      "read": {
+        "burnAddress": "Address to send tokens for burning",
+        "governance ": "Address of GnosisSafeProxy contract",
+        "inflation ": "Address of Inflation contract",
+        "initialGenesisAmountWei": "Amount of FLR generated at genesis of blockchain "
+      },
+      "event": {}
+    }
+  }
+}

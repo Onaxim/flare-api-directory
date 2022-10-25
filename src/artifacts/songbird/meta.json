@@ -1,0 +1,56 @@
+{
+  "TEMPLATE": {
+    "address": "",
+    "description": "",
+    "comments": {
+      "write": {
+        "METHOD_NAME": "Description"
+      },
+      "read": {
+        "METHOD_NAME": "Description"
+      },
+      "event": {
+        "EVENT_NAME": "Description"
+      }
+    }
+  },
+  "Ftso": {
+    "address": "0x23f1AaA1B6a5fD5bbB5906Fa389D517C870CA2FF",
+    "description": "Contract for each FTSO in the FTSO system. FTSO refers to each submittable symbol (ie. XRP, DOGE, SGB, etc). Provided address is example of one FTSO contract.",
+    "comments": {
+      "write": {
+        "METHOD_NAME": "Description"
+      },
+      "read": {
+        "METHOD_NAME": "Description"
+      },
+      "event": {
+        "EVENT_NAME": "Description"
+      }
+    }
+  },
+  "FtsoManager": {
+    "comments": {
+      "write": {
+        "activate": "For deployment use.",
+        "addFtso": "Adds a new submittable FTSO (symbol) to the system."
+      },
+      "read": {},
+      "event": {}
+    }
+  },
+  "Supply": {
+    "address": "0x",
+    "description": "Supply Contract",
+    "comments": {
+      "write": {},
+      "read": {
+        "burnAddress": "Address to send tokens for burning",
+        "governance ": "Address of GnosisSafeProxy contract",
+        "inflation ": "Address of Inflation contract",
+        "initialGenesisAmountWei": "Amount of FLR generated at genesis of blockchain "
+      },
+      "event": {}
+    }
+  }
+}

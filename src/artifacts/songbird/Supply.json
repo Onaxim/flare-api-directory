@@ -1,0 +1,296 @@
+[
+  {
+    "type": "constructor",
+    "stateMutability": "nonpayable",
+    "inputs": [
+      { "type": "address", "name": "_governance", "internalType": "address" },
+      { "type": "address", "name": "_burnAddress", "internalType": "address" },
+      { "type": "address", "name": "_inflation", "internalType": "address" },
+      {
+        "type": "uint256",
+        "name": "_initialGenesisAmountWei",
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "_totalFoundationSupplyWei",
+        "internalType": "uint256"
+      },
+      {
+        "type": "address[]",
+        "name": "_tokenPools",
+        "internalType": "contract IITokenPool[]"
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "AuthorizedInflationUpdateError",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "actual",
+        "internalType": "uint256",
+        "indexed": false
+      },
+      {
+        "type": "uint256",
+        "name": "expected",
+        "internalType": "uint256",
+        "indexed": false
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "GovernanceProposed",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "proposedGovernance",
+        "internalType": "address",
+        "indexed": false
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "GovernanceUpdated",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "oldGovernance",
+        "internalType": "address",
+        "indexed": false
+      },
+      {
+        "type": "address",
+        "name": "newGoveranance",
+        "internalType": "address",
+        "indexed": false
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "addTokenPool",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_tokenPool",
+        "internalType": "contract IITokenPool"
+      },
+      {
+        "type": "uint256",
+        "name": "_decreaseFoundationSupplyByAmountWei",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+    "name": "burnAddress",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "changeBurnAddress",
+    "inputs": [
+      { "type": "address", "name": "_burnAddress", "internalType": "address" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "claimGovernance",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "decreaseFoundationSupply",
+    "inputs": [
+      { "type": "uint256", "name": "_amountWei", "internalType": "uint256" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+    "name": "distributedFoundationSupplyWei",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "_circulatingSupplyWei",
+        "internalType": "uint256"
+      }
+    ],
+    "name": "getCirculatingSupplyAt",
+    "inputs": [
+      { "type": "uint256", "name": "_blockNumber", "internalType": "uint256" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "_circulatingSupplyWei",
+        "internalType": "uint256"
+      }
+    ],
+    "name": "getCirculatingSupplyAtCached",
+    "inputs": [
+      { "type": "uint256", "name": "_blockNumber", "internalType": "uint256" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "_inflatableBalanceWei",
+        "internalType": "uint256"
+      }
+    ],
+    "name": "getInflatableBalance",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+    "name": "governance",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+    "name": "inflation",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+    "name": "initialGenesisAmountWei",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "initialise",
+    "inputs": [
+      { "type": "address", "name": "_governance", "internalType": "address" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "proposeGovernance",
+    "inputs": [
+      { "type": "address", "name": "_governance", "internalType": "address" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+    "name": "proposedGovernance",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "setInflation",
+    "inputs": [
+      { "type": "address", "name": "_inflation", "internalType": "address" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [
+      {
+        "type": "address",
+        "name": "tokenPool",
+        "internalType": "contract IITokenPool"
+      },
+      {
+        "type": "uint256",
+        "name": "foundationAllocatedFundsWei",
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "totalInflationAuthorizedWei",
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "totalClaimedWei",
+        "internalType": "uint256"
+      }
+    ],
+    "name": "tokenPools",
+    "inputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }]
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+    "name": "totalFoundationSupplyWei",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+    "name": "totalInflationAuthorizedWei",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "transferGovernance",
+    "inputs": [
+      { "type": "address", "name": "_governance", "internalType": "address" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "updateAuthorizedInflationAndCirculatingSupply",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "_inflationAuthorizedWei",
+        "internalType": "uint256"
+      }
+    ]
+  }
+]
