@@ -26,7 +26,13 @@ npm run dev
 npm run build
 ```
 
+### Deployment
+
+- Auto Generated documentation must be generated (see docs below)
+
 ### Adding new ABI's
+
+[Pending deprecation of meta.comments in favour of autogenetrated comments from contracts]
 
 1. Import ABI JSON into network specific folder (`./src/artifacts/<NETWORK>/`)
    - Follow capitaliztion naming convention (`my new contract` should be `MyNewContract`)
@@ -53,6 +59,16 @@ npm run build
 3. Edit network specific components (`./src/components/<NETWORK>AbiList.vue`) adding:
    - Import for the ABI `import <ABI_NAME>Abi from "../artifacts/<NETWORK>/<ABI_NAME>.json";`
    - Append to the `abiList` array the import and abi name: `{ name: "<ABI_NAME>", file: <ABI_NAME> }`
+
+### Auto Generate Documentation Comments
+
+1. Use `./src/artifacts/contracts/compile.js` to:
+
+- Download contracts from official repo (`downloadManager(<NETWORK>)`)
+- Parse contracts to extract comments (`parseContracts(<NETWORK>)`)
+- Downloaded contracts are downloaded to `./src/artifacts/contracts/implementation/<NETWORK>/*`
+- Auto generated comments are output to `./src/artifacts/contracts/documentation/<NETWORK>/*`
+  - Documentation for each contract is output and also a combined `documentation.json`
 
 ### Todo:
 

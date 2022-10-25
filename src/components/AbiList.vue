@@ -14,6 +14,9 @@ const props = defineProps({
   abiList: {
     required: true,
   },
+  documentation: {
+    required: true,
+  },
 });
 
 const state = reactive({
@@ -22,6 +25,18 @@ const state = reactive({
   search: "",
 });
 
+var parsedDocumentation = {};
+
+if (props.documentation) {
+  for (let contractName of Object.keys(props.documentation)) {
+    let contract = props.documentation[contractName];
+    parsedDocumentation[contractName] = {};
+    for (let item of contract) {
+      parsedDocumentation[contractName][item.method] = item.natSpec;
+    }
+  }
+  console.log({ parsedDocumentation });
+}
 onMounted(() => {
   state.search = route.query.search ?? "";
   const method = route.query.method ?? state.selectedMethod;
@@ -35,8 +50,6 @@ onMounted(() => {
 });
 
 import abiMeta from "../artifacts/songbird/meta.json";
-import supplyAbi from "../artifacts/songbird/Supply.json";
-import ftsoManagerAbi from "../artifacts/songbird/FtsoManager.json";
 
 const meta = props.abiMeta;
 const abiList = props.abiList;
@@ -55,7 +68,6 @@ for (let abi of abiList) {
   console.log(parsedAbis);
 }
 state.selectedContract = reactive(parsedAbis[abiList[0].name]);
-console.log({ state });
 
 function searchAbis() {
   console.log("SEARCH");
@@ -159,9 +171,12 @@ function openTab(evt, tabName) {
           </p>
           <p class="text-gray-600">
             <span class="font-bold text-gray-400">Description:</span><br />
-            <span v-if="meta?.[state.selectedContract.name]?.description">{{
-              meta?.[state.selectedContract.name]?.description
-            }}</span>
+            <span
+              v-if="
+                props.documentation?.[state.selectedContract.name]?.description
+              "
+              >{{ meta?.[state.selectedContract.name]?.description }}</span
+            >
             <span v-else class="text-gray-200">Please add description</span>
           </p>
         </div>
@@ -186,12 +201,14 @@ function openTab(evt, tabName) {
             <div class="py-2">
               <p class="text-sm text-gray-600">
                 {{
-                  meta?.[state.selectedContract.name]?.comments?.read?.[
+                  parsedDocumentation?.[state.selectedContract.name]?.[
                     read.name
-                  ] ?? ""
+                  ]?.notice ?? ""
                 }}
               </p>
             </div>
+
+            <!-- Inputs -->
             <div
               class="pl-3 border-2 border-gray-50 p-2 my-2"
               v-if="read.inputs.length"
@@ -201,6 +218,8 @@ function openTab(evt, tabName) {
                 <p>{{ ri.name ? ri.name : read.name }} ({{ ri.type }})</p>
               </div>
             </div>
+
+            <!-- Outputs -->
             <div
               class="pl-3 border-2 border-gray-50 p-2 my-2"
               v-if="read.outputs.length"

@@ -13,6 +13,8 @@ import VoterWhitelisterAbi from "../artifacts/songbird/VoterWhitelister.json";
 import VPTokenAbi from "../artifacts/songbird/VPToken.json";
 import WNatAbi from "../artifacts/songbird/WNat.json";
 
+import documentation from "../artifacts/contracts/documentation/songbird/documentation.json";
+
 const abiMeta = abiMetaData;
 const abiList = [
   { name: "Ftso", file: FtsoAbi },
@@ -28,5 +30,10 @@ const abiList = [
 </script>
 
 <template>
-  <AbiList :abiMeta="abiMeta" :abiList="abiList" network="songbird" />
+  <AbiList
+    :abiMeta="abiMeta"
+    :abiList="abiList"
+    :documentation="documentation"
+    network="songbird"
+  />
 </template>

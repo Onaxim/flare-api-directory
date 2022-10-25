@@ -13,6 +13,8 @@ import VoterWhitelisterAbi from "../artifacts/flare/VoterWhitelister.json";
 import VPTokenAbi from "../artifacts/flare/VPToken.json";
 import WNatAbi from "../artifacts/flare/WNat.json";
 
+import documentation from "../artifacts/contracts/documentation/flare/documentation.json";
+
 const abiMeta = abiMetaData;
 const abiList = [
   { name: "Ftso", file: FtsoAbi },
@@ -28,5 +30,10 @@ const abiList = [
 </script>
 
 <template>
-  <AbiList :abiMeta="abiMeta" :abiList="abiList" network="flare" />
+  <AbiList
+    :abiMeta="abiMeta"
+    :abiList="abiList"
+    :documentation="documentation"
+    network="flare"
+  />
 </template>
