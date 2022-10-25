@@ -8,6 +8,15 @@ import { RouterLink, RouterView } from "vue-router";
   </div>
 
   <RouterView />
+
+  <div id="footer" class="py-12">
+    <p class="text-center">
+      Open Source:
+      <a href="https://github.com/Onaxim/flare-api-directory" target="_blank"
+        >https://github.com/Onaxim/flare-api-directory</a
+      >
+    </p>
+  </div>
 </template>
 
 <style scoped></style>

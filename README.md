@@ -1,4 +1,4 @@
-# evm-abi-viewer
+# Flare ABI/API Directory
 
 ## Recommended IDE Setup
 
